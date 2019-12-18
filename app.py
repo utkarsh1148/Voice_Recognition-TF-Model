@@ -42,7 +42,7 @@ def basic():
         else:
             last=0
         if(req_data['work']=='train'):
-            file_name = '/Recording6'+'.wav'
+            file_name = './Recording6'+'.wav'
             fs, signal = wav.read(file_name)
             signal = signal[:,0]
             autoidd=req_data['register']
@@ -94,7 +94,7 @@ def basic():
         else:
             autoid=req_data['register']
             tes='test'
-            file_name = '/Recording6'+'.wav'
+            file_name = './Recording6'+'.wav'
             fs, signal = wav.read(file_name)
             signal = signal[:,0]
 
