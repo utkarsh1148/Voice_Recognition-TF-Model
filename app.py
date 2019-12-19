@@ -7,26 +7,16 @@ import os
 from firebase import firebase
 import pyrebase
 import urllib3
+import io
+from base64 import b64decode
 
 
 
 firebase=firebase.FirebaseApplication("https://npci-database.firebaseio.com/",None)
 
 
-config={
-    'apiKey': "AIzaSyAJOIrwfA0Y8T6M96eDKSCcmDWxIB0urr8",
-    'authDomain': "npci-database.firebaseapp.com",
-    'databaseURL': "https://npci-database.firebaseio.com",
-    'projectId': "npci-database",
-    'messagingSenderId': "627470249948",
-    'storageBucket': "npci-database.appspot.com",
-    'appId': "1:627470249948:web:d8406ca90b92f0babce919",
-    'measurementId': "G-CLRNGXK0VP"
-}
 
-firebasestr=pyrebase.initialize_app(config)
 
-storage=firebasestr.storage()
 
 app=Flask(__name__)
 
@@ -42,8 +32,12 @@ def basic():
         else:
             last=0
         if(req_data['work']=='train'):
-            file_name = './Recording6'+'.wav'
-            fs, signal = wav.read(file_name)
+            file_name = '/Recording6'+'.wav'
+            b64=req_data['recording']
+            bin=b64decode(b64)
+            f=io.BytesIO(bin)
+            
+            fs, signal = wav.read(f)
             signal = signal[:,0]
             autoidd=req_data['register']
             if(autoidd=='new'):
@@ -56,7 +50,6 @@ def basic():
 
             frames = speechpy.processing.stack_frames(signal, sampling_frequency=fs, frame_length=0.020, frame_stride=0.01, filter=lambda x: np.ones((x,)),
                     zero_padding=True)
-            print(file_name)
 
             power_spectrum = speechpy.processing.power_spectrum(frames, fft_points=512)
             print('power spectrum shape=', power_spectrum.shape)
@@ -93,9 +86,10 @@ def basic():
                 result='Updated'
         else:
             autoid=req_data['register']
-            tes='test'
-            file_name = './Recording6'+'.wav'
-            fs, signal = wav.read(file_name)
+            b64=req_data['recording']
+            bin=b64decode(b64)
+            f=io.BytesIO(bin)
+            fs, signal = wav.read(f)
             signal = signal[:,0]
 
     
