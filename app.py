@@ -98,7 +98,6 @@ def basic():
 
             frames = speechpy.processing.stack_frames(signal, sampling_frequency=fs, frame_length=0.020, frame_stride=0.01, filter=lambda x: np.ones((x,)),
                     zero_padding=True)
-            print(file_name)
 
             power_spectrum = speechpy.processing.power_spectrum(frames, fft_points=512)
             print('power spectrum shape=', power_spectrum.shape)
