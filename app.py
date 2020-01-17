@@ -122,6 +122,7 @@ def basic():
             powst=powst.split(",")[0]
             powst=powst[1:]
             diff=abs(sava-int(powst))
+            print(diff)
             if(diff>50):
                 varified=0
             else:
