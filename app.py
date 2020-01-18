@@ -123,10 +123,10 @@ def basic():
             powst=powst[1:]
             diff=abs(sava-int(powst))
             print(diff)
-            if(diff>50):
-                varified=0
-            else:
+            if(diff<50):
                 varified=1
+            else:
+                varified=0
                         
     if(last==1):
         scoav=firebase.get('/'+autoid,'')
