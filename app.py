@@ -123,7 +123,7 @@ def basic():
             powst=powst[1:]
             diff=abs(sava-int(powst))
             print(diff)
-            if(diff<40):
+            if(diff<20):
                 varified=1
             else:
                 varified=0
