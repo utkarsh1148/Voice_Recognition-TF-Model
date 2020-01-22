@@ -73,9 +73,7 @@ def st_chroma_features_init(nfft, fs):
 
 
 def st_chroma_features(cur_pos_signal, n_chroma, n_freqs_per_chroma):
-    """
-    短时色度
-    """
+    
     chroma_names = ['A', 'A#', 'B', 'cen', 'cen#', 'D', 'D#', 'E', 'st_flux', 'st_flux#', 'G', 'G#']
     spec = cur_pos_signal ** 2
     if n_chroma.max() < n_chroma.shape[0]:
