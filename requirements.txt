@@ -99,7 +99,7 @@ RandomWords==0.2.1
 requests==2.22.0
 requests-toolbelt==0.7.0
 resampy==0.2.2
-rsa==4.0
+rsa==4.1
 scikit-image==0.14.0
 scikit-learn==0.19.2
 scipy==1.1.0
