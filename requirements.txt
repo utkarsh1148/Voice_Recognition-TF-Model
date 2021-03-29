@@ -79,7 +79,7 @@ pycparser==2.19
 pycryptodome==3.6.6
 pydub==0.23.1
 pyflakes==2.1.1
-Pygments==2.3.0
+Pygments==2.7.4
 pylint==2.4.4
 pyparsing==2.3.0
 PyQt5==5.13.2
