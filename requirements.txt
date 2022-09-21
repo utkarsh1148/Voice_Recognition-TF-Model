@@ -91,7 +91,7 @@ pytest-cov==2.8.1
 pytest-mock==1.13.0
 python-dateutil==2.7.3
 python-firebase==1.2
-python-jwt==2.0.1
+python-jwt==3.3.4
 python-speech-features==0.6
 pytz==2018.7
 PyWavelets==1.0.1
